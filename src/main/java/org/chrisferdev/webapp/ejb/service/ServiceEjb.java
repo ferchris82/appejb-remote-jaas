@@ -5,8 +5,8 @@ import jakarta.ejb.Stateful;
 import jakarta.ejb.Stateless;
 import jakarta.enterprise.context.RequestScoped;
 
-@RequestScoped
-@Stateful
+//@RequestScoped
+@Stateless
 public class ServiceEjb {
 
     private int contador;
