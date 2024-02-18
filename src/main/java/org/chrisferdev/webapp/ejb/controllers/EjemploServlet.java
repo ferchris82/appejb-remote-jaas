@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.chrisferdev.webapp.ejb.models.Producto;
 import org.chrisferdev.webapp.ejb.service.ServiceEjb;
 import org.chrisferdev.webapp.ejb.service.ServiceEjbLocal;
 
@@ -37,8 +38,13 @@ public class EjemploServlet extends HttpServlet {
         }
 
         System.out.println("service si es igual a service2 = " + service.equals(service2));
+
+        Producto p = service.crear(new Producto("uvas"));
+        System.out.println("nuevo producto " + p);
+
         req.setAttribute("saludo", service.saludar("Christian"));
         req.setAttribute("saludo2", service2.saludar("Karina"));
+        req.setAttribute("listado", service.listar());
         getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 }
