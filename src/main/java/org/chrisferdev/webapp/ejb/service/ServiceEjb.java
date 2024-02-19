@@ -1,15 +1,15 @@
 package org.chrisferdev.webapp.ejb.service;
 
 
+import jakarta.ejb.Stateful;
 import jakarta.ejb.Stateless;
 import org.chrisferdev.webapp.ejb.models.Producto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-// @RequestScoped
-@Stateless
-public class ServiceEjb implements ServiceEjbLocal {
+@Stateful
+public class ServiceEjb implements ServiceEjbRemote {
 
     private int contador;
 

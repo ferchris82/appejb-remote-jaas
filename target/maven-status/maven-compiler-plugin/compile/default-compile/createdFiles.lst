@@ -1,0 +1,3 @@
+org\chrisferdev\webapp\ejb\models\Producto.class
+org\chrisferdev\webapp\ejb\service\ServiceEjb.class
+org\chrisferdev\webapp\ejb\service\ServiceEjbRemote.class
