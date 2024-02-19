@@ -11,3 +11,4 @@ public interface ServiceEjbLocal {
      List<Producto> listar();
      Producto crear(Producto producto);
 }
+
