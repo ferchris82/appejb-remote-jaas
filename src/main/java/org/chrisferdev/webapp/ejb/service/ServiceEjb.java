@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Stateful
+
 public class ServiceEjb implements ServiceEjbRemote {
 
     private int contador;
