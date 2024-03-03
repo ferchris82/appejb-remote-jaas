@@ -1,6 +1,8 @@
 package org.chrisferdev.webapp.ejb.service;
 
 
+import jakarta.annotation.security.DeclareRoles;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.ejb.Stateful;
 import jakarta.ejb.Stateless;
 import org.chrisferdev.webapp.ejb.models.Producto;
@@ -8,12 +10,14 @@ import org.chrisferdev.webapp.ejb.models.Producto;
 import java.util.ArrayList;
 import java.util.List;
 
+@DeclareRoles({"ADMIN", "USER"})
 @Stateful
 
 public class ServiceEjb implements ServiceEjbRemote {
 
     private int contador;
 
+    @RolesAllowed({"USER", "ADMIN"})
     public String saludar(String nombre) {
         System.out.println("imprimiendo dentro del ejb con instancia: " + this);
         contador++;
@@ -21,6 +25,7 @@ public class ServiceEjb implements ServiceEjbRemote {
         return "Hola que tal " + nombre;
     }
 
+    @RolesAllowed({"USER", "ADMIN"})
     @Override
     public List<Producto> listar() {
         List<Producto> productos = new ArrayList<>();
@@ -30,6 +35,7 @@ public class ServiceEjb implements ServiceEjbRemote {
         return productos;
     }
 
+    @RolesAllowed({"ADMIN"})
     @Override
     public Producto crear(Producto producto) {
         System.out.println("guardando producto ..." + producto);
